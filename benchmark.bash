@@ -10,9 +10,6 @@ for countdown in {5..1}; do
 done
 echo >&2
 
-echo '[INFO] Initializing verdaccio cache...' >&2
-pnpm install
-
 pnpm_store=/root/.local/share/pnpm/store/
 bun_cache=/root/.bun/install/cache/
 pnpm_cmd_prefix='pnpm install --prefer-offline --ignore-scripts --reporter=silent'
