@@ -32,6 +32,12 @@ hyperfine --warmup=2 \
   "$pnpm_cmd_prefix --frozen-lockfile" \
   "$bun_cmd_prefix --frozen-lockfile"
 
+echo '[MAIN] Benchmark: With lockfile but without cache' >&2
+hyperfine --warmup=2 \
+  --prepare="rm -rf node_modules $pnpm_store $bun_cache" \
+  "$pnpm_cmd_prefix --frozen-lockfile" \
+  "$bun_cmd_prefix --frozen-lockfile"
+
 echo '[MAIN] Benchmark: Without lockfile and cache' >&2
 hyperfine --warmup=2 \
   --prepare="rm -rf node_modules pnpm-lock.yaml bun.lockb $pnpm_store $bun_cache" \
