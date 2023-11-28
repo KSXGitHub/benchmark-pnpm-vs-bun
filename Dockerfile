@@ -22,8 +22,8 @@ RUN mkdir /workspace
 COPY package.json /workspace/package.json
 COPY .npmrc /workspace/.npmrc
 COPY bunfig.toml /workspace/bunfig.toml
-COPY init-verdaccio.bash /workspace/init-verdaccio.bash
 COPY benchmark.bash /workspace/benchmark.bash
-WORKDIR /workspace
+COPY init-verdaccio.bash /workspace/init-verdaccio.bash
 RUN /workspace/init-verdaccio.bash
+WORKDIR /workspace
 ENTRYPOINT ["/workspace/benchmark.bash"]
